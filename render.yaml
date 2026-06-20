@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: mongo-oauth-demo
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      # Paste your Atlas SRV connection string here (set in the Render dashboard, do NOT commit it).
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DATABASE
+        value: sample_mflix
+      # Your OAuth2 client credentials (choose your own values in the dashboard).
+      - key: OAUTH_CLIENT_ID
+        sync: false
+      - key: OAUTH_CLIENT_SECRET
+        sync: false

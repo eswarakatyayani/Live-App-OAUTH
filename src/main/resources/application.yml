@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: mongo-oauth-demo
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017}
+      database: ${MONGODB_DATABASE:sample_mflix}
+
+oauth:
+  client-id: ${OAUTH_CLIENT_ID:demo-client}
+  client-secret: ${OAUTH_CLIENT_SECRET:demo-secret}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
